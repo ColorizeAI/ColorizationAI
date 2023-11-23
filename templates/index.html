@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorizeAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<!-- Cookie Consent Popup -->
+<div id="cookie-consent">
+    <p>This website uses cookies to ensure you get the best experience. By using our website, you agree to our use of cookies. <a href="terms.html">Learn more</a></p>
+    <button onclick="acceptCookies()">Got it!</button>
+</div>
+
+<h1>ColorizeAI</h1>
+<form action="/" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*" required>
+    <button type="submit">Colorize</button>
+</form>
+{% if error %}
+    <p>{{ error }}</p>
+{% endif %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
