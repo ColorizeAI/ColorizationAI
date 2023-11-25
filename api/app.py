@@ -1,23 +1,20 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, url_for
 import cv2
 import numpy as np
 from io import BytesIO
 import os
-import logging
 
 app = Flask(__name__)
 
-# Set up logging
-logging.basicConfig(level=logging.DEBUG)
-
 def get_absolute_path(relative_path):
-    return os.path.join(os.path.dirname(__file__), relative_path)
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base_path, relative_path)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/terms.html')  # Add this route
+@app.route('/terms.html')  
 def terms():
     return render_template('terms.html')
 
@@ -41,19 +38,9 @@ def upload_file():
     return render_template('result.html', input_image='input.jpg', colorized_image=colorized_image)
 
 def colorize_image(file_data):
-    prototxt_path = get_absolute_path("models/colorization_deploy_v2.prototxt")
+    prototxt_path = get_absolute_path("api/models/colorization_deploy_v2.prototxt")
     model_path = get_absolute_path("api/models/colorization_release_v2.caffemodel")
-    kernel_path = get_absolute_path("models/pts_in_hull.npy")
-
-    # Check if model files exist
-    for file_path in [prototxt_path, model_path, kernel_path]:
-        if not os.path.exists(file_path):
-            logging.error(f"File not found: {file_path}")
-            return None
-
-    logging.debug("Prototxt path: %s", prototxt_path)
-    logging.debug("Model path: %s", model_path)
-    logging.debug("Kernel path: %s", kernel_path)
+    kernel_path = get_absolute_path("api/models/pts_in_hull.npy")
 
     net = cv2.dnn.readNetFromCaffe(prototxt_path, model_path)
     points = np.load(kernel_path)
@@ -84,7 +71,7 @@ def colorize_image(file_data):
 
     # Encode the colorized image to JPEG format
     _, colorized_data = cv2.imencode('.jpg', colorized)
-
+    
     # Return the colorized image as bytes
     return BytesIO(colorized_data).read()
 
