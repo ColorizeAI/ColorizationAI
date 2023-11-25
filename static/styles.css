@@ -5,8 +5,27 @@ body {
     margin: 20px;
 }
 
+.main-centered {
+    transform: translateY(130%);
+}
+
+.rainbowText {
+    background-image: 
+      linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet,rgb(255, 0, 102)); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    animation: move 35s linear infinite;
+  }
+  
+  @keyframes move {
+    to {
+      background-position: 3000vh;
+    }
+  }
+
 h1 {
     color: #333;
+    font-size: 40px;
 }
 
 p {
@@ -25,15 +44,19 @@ input[type="file"] {
 }
 
 button {
-    padding: 10px;
-    background-color: #4CAF50;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #3498db;
     color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
     border: none;
-    cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2980b9;
 }
     
 /* Cookie Consent Styles */
