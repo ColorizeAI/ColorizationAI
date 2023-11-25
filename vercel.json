@@ -11,11 +11,5 @@
       "dest": "api/app.py"
     }
   ],
-  "builds": [
-    {
-      "src": "build.sh",
-      "use": "@vercel/static-build"
-    }
-  ]
 }
 
