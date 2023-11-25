@@ -1,23 +1,23 @@
- {
-     "builds": [
+{
+  "builds": [
          {
              "src": "api/app.py",
              "use": "@vercel/python"
          }
      ],
-     "routes": [
-         {
-             "src": "/(.*)",
-             "dest": "api/app.py"
-         }
-     ]
-     "build": {
-       "functions": {
-         "api/app.py": {
-           "runtime": "@vercel/python",
-           "memory": 1024
-         }
-       },
-       "script": "./vercel-build.sh"  
-     }
- }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/app.py"
+    }
+  ],
+  "build": {
+    "functions": {
+      "api/app.py": {
+        "runtime": "@vercel/python",
+        "memory": 1024
+      }
+    },
+    "script": "./vercel-build.sh"  
+  }
+}
