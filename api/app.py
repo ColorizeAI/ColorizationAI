@@ -42,7 +42,7 @@ def upload_file():
 
 def colorize_image(file_data):
     prototxt_path = get_absolute_path("models/colorization_deploy_v2.prototxt")
-    model_path = get_absolute_path("models/colorization_release_v2.caffemodel")
+    model_path = get_absolute_path("api/models/colorization_release_v2.caffemodel")
     kernel_path = get_absolute_path("models/pts_in_hull.npy")
 
     # Check if model files exist
