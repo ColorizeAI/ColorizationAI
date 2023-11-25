@@ -11,13 +11,4 @@
       "dest": "api/app.py"
     }
   ],
-  "build": {
-    "functions": {
-      "api/app.py": {
-        "runtime": "@vercel/python",
-        "memory": 1024
-      }
-    },
-    "script": "./vercel-build.sh"  
-  }
 }
