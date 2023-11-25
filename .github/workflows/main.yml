@@ -18,14 +18,9 @@ jobs:
       with:
         python-version: 3.11.6
 
-    - name: Set up virtual environment
-      run: |
-        python -m venv venv
-        source venv\Scripts\activate
-        pip install --upgrade pip
-
     - name: Install dependencies
       run: |
+        pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Run Application
