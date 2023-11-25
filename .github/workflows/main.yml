@@ -16,14 +16,18 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.11.6
+
+    - name: Set up virtual environment
+      run: |
+        python -m venv venv
+        source venv\Scripts\activate
+        pip install --upgrade pip
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests
+    - name: Run Application
       run: |
-        python app.py  # Adjust this if needed
-
+        python app.py
