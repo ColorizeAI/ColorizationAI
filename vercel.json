@@ -11,10 +11,11 @@
       "dest": "api/app.py"
     }
   ],
-  "build": {
-    "commands": [
-      "apt-get update",
-      "apt-get install -y ffmpeg libsm6 libxext6"
-    ]
-  }
+  "builds": [
+    {
+      "src": "build.sh",
+      "use": "@vercel/static-build"
+    }
+  ]
 }
+
