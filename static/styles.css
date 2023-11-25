@@ -72,13 +72,17 @@ button:hover {
     text-align: center;
 }
 
+#cookie-consent p {
+    padding-right: 15px;
+}
+
 #cookie-consent a {
-    color: #fff;
+    color: #d4d4d4;
     text-decoration: underline;
 }
 
 #cookie-consent button {
-    background: #fff;
+    background: #d4d4d4;
     color: #333;
     padding: 5px 10px;
     border: none;
