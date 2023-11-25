@@ -36,6 +36,7 @@ def colorize_image(file_data):
     prototxt_path = "api/models/colorization_deploy_v2.prototxt"
     model_path = "api/models/colorization_release_v2.caffemodel"
     kernel_path = "api/models/pts_in_hull.npy"
+    
 
     net = cv2.dnn.readNetFromCaffe(prototxt_path, model_path)
     points = np.load(kernel_path)
