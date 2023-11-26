@@ -7,30 +7,39 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header>
+        <h3>Made by ColorizeAI</h3>
+    </header>
 
-<!-- Cookie Consent Popup -->
-<div id="cookie-consent">
-    <p>Disclaimer: The images on this site have been artificially colorized using artificial intelligence. 
-        The colorization process may not always accurately reflect the original colors of the images.
-        <br>
-        The results are generated based on the AI's interpretation and may not represent reality. 
-        Use this service at your own discretion.
-        <br>
-        <a href="terms.html">Learn more</a> and <a href="terms.html">Tems of Service</a></p>
-</div>
+    <main>
+        <div class="main-centered">
+        <h1 class="rainbowText">Colorize image</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Colorize</button>
+        </form>
+        </div>
+    </main>
 
-<div class="main-centered">
-    <h1 class="rainbowText">ColorizeAI</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*" required>
-        <button type="submit">Colorize</button>
-    </form>
-</div>
+    <footer>
+            <!-- Cookie Consent Popup -->
+        <div id="cookie-consent">
+            <p>
+                Disclaimer: The images on this site have been artificially colorized using artificial intelligence.
+                The colorization process may not always accurately reflect the original colors of the images.
+                <br>
+                The results are generated based on the AI's interpretation and may not represent reality.
+                Use this service at your own discretion.
+                <br>
+                <a href="terms.html">Learn more</a> and <a href="terms.html">Tems of Service</a>
+            </p>
+        </div>
+    </footer>
 
-{% if error %}
-    <p>{{ error }}</p>
-{% endif %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

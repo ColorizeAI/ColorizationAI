@@ -57,6 +57,26 @@ button {
 
 button:hover {
     background-color: #2980b9;
+    cursor: copy;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+Header > h1 {
+    color: white;
 }
     
 /* Cookie Consent Styles */
