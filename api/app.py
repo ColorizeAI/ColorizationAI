@@ -8,13 +8,16 @@ app = Flask(__name__)
 # Ensure the 'static/uploads' directory exists
 os.makedirs('static/uploads', exist_ok=True)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/terms.html')  # Add this route
 def terms():
     return render_template('terms.html')
+
 
 @app.route('/', methods=['POST'])
 def upload_file():
@@ -33,6 +36,7 @@ def upload_file():
     colorized_path = colorize_image(file_path)
 
     return render_template('result.html', input_image='input.jpg', colorized_image='colorized.jpg')
+
 
 def colorize_image(image_path):
     prototxt_path = "models/colorization_deploy_v2.prototxt"
@@ -70,9 +74,11 @@ def colorize_image(image_path):
 
     return colorized_path
 
+
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory('static/uploads', filename)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
